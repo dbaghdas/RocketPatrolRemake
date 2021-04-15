@@ -7,13 +7,14 @@ class Play extends Phaser.Scene {
         this.load.image('starfield', 'assets/starfield.png'); 
         this.load.image('rocket', 'assets/rocket.png');
         this.load.image('spaceship', 'assets/spaceship.png');
-        this.load.spritesheet('explosion', 'assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9});
+        this.load.spritesheet('explosion', 'assets/explosion.png', {frameWidth: 80, frameHeight: 50, startFrame: 0, endFrame: 9});
         this.load.audio('sfx_explosion', 'assets/explosion38.wav');
         this.load.audio('sfx_rocket', 'assets/rocket_shot.wav');
         this.load.audio('backgroundMusic', 'assets/nanophage.mp3');
         this.load.image('smallspaceship', 'assets/spaceshipSmall.png');
         this.load.image('uiborder', 'assets/uiborder.png');
         this.load.image('greenborder', 'assets/greenBorder.png');
+        this.load.image('rocket2', 'assets/rocket2.png');
     }
 
     create() {
@@ -24,7 +25,7 @@ class Play extends Phaser.Scene {
 
         // Create a Rocket
         this.p1Rocket = new RocketP1(this, game.config.width/2 + 30, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5,0);
-        this.p2Rocket = new RocketP2(this, game.config.width/2 - 30, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5,0);
+        this.p2Rocket = new RocketP2(this, game.config.width/2 - 30, game.config.height - borderUISize - borderPadding, 'rocket2').setOrigin(0.5,0);
         
         // Create Ships
         this.ship1 = new Ship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0, 0);
@@ -56,7 +57,7 @@ class Play extends Phaser.Scene {
         this.anims.create({
             key: 'explode',
             frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 9, first: 0}),
-            frameRate: 30
+            frameRate: 20
         });
 
         // initialize score
@@ -67,7 +68,7 @@ class Play extends Phaser.Scene {
         let scoreConfig1 = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
+            backgroundColor: '#FACADE',
             color: '#843605',
             align: 'right',
             padding: {
@@ -80,7 +81,7 @@ class Play extends Phaser.Scene {
         let scoreConfig2 = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#FACADE',
+            backgroundColor: '#F3B141',
             color: '#843605',
             align: 'right',
             padding: {

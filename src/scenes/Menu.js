@@ -12,17 +12,18 @@ class Menu extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Impact',
             fontSize: '38px',
-            backgroundColor: '#BLACK',
+            backgroundColor: '#222021',
             color: '#FACADE',
             align: 'right',
             padding: {
-            top: 5,
-            bottom: 5,
+            top: 1,
+            bottom: 1,
             },
             fixedWidth: 0
         }
         this.menubg = this.add.tileSprite(0, 0, 640, 480, 'menubg').setOrigin(0, 0);
         this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderUISize, 'ROCKET PATROL MODDED', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2.8 - borderUISize - borderUISize, '2 PLAYER', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/1.4, 'P1: Use <--> arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/3 + borderUISize + borderPadding, 'Press <- for Novice or -> for Expert', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/1.1, 'P2: Use A and D to move & (SPACE) to fire', menuConfig).setOrigin(0.5);
