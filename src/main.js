@@ -4,7 +4,7 @@
 // 4/15/21
 // Hours: 
 //
-//
+// Implement a simultaneous two-player mode P1: [<- -> F] P2: [A D SPACE] (30)
 //
 
 let config = {
