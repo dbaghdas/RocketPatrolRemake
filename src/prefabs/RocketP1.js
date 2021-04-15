@@ -1,4 +1,4 @@
-class Rocket extends Phaser.GameObjects.Sprite {
+class RocketP1 extends Phaser.GameObjects.Sprite {
     constructor(scene, x , y, texture, frame) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);     
@@ -9,6 +9,7 @@ class Rocket extends Phaser.GameObjects.Sprite {
         this.sfxRocket = scene.sound.add('sfx_rocket'); // add rocket sfx
 
     }
+
 
     update() {
         if(this.isFiring) {
@@ -31,9 +32,6 @@ class Rocket extends Phaser.GameObjects.Sprite {
 
             }
         }
-
-
-
         // Sets boundaries for the rocket to not cross
         this.x = Phaser.Math.Clamp(this.x , borderUISize + borderPadding, game.config.width - borderUISize - borderPadding);
     }

@@ -18,7 +18,8 @@ class Play extends Phaser.Scene {
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
 
         // Create a Rocket
-        this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5,0);
+        this.p1Rocket = new RocketP1(this, game.config.width/2 + 30, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5,0);
+        this.p2Rocket = new RocketP2(this, game.config.width/2 - 30, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5,0);
         
         // Create Ships
         this.ship1 = new Ship(this, game.config.width + borderUISize*6, borderUISize*4, 'spaceship', 0, 30).setOrigin(0, 0);
@@ -34,10 +35,16 @@ class Play extends Phaser.Scene {
 	    this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
 	    this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
         
+        // For Player 1
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+
+        // For Player 2
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         // animation config
         this.anims.create({
@@ -83,24 +90,26 @@ class Play extends Phaser.Scene {
 
         // Calls Update in rocket object
         this.p1Rocket.update();
+        this.p2Rocket.update();
 
         // Calls Update in ship object
         this.ship1.update();
         this.ship2.update();
         this.ship3.update();
         
-        if(this.checkCollision(this.p1Rocket, this.ship3)) {
+        if(this.checkCollision(this.p1Rocket, this.ship3) || this.checkCollision(this.p2Rocket, this.ship3)) {
             this.shipExplode(this.ship3);  
           }
-        if (this.checkCollision(this.p1Rocket, this.ship2)) {
+        if (this.checkCollision(this.p1Rocket, this.ship2) || this.checkCollision(this.p2Rocket, this.ship2)) {
             this.shipExplode(this.ship2);  
           }
-        if (this.checkCollision(this.p1Rocket, this.ship1)) {
+        if (this.checkCollision(this.p1Rocket, this.ship1) || this.checkCollision(this.p2Rocket, this.ship1)) {
             this.shipExplode(this.ship1);  
           }
 
         if (!this.gameOver) {               
-            this.p1Rocket.update();         // update rocket sprite
+            this.p1Rocket.update();  
+            this.p1Rocket.update(); 
             this.ship1.update();           // update spaceships (x3)
             this.ship2.update();
             this.ship3.update();
