@@ -7,7 +7,8 @@
 // Implement a simultaneous two-player mode P1: [<- -> F] P2: [A D SPACE] (30)
 // Add your own (copyright-free) background music to the Play scene (5)
 // Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
-// Total: (55)
+// Create a new scrolling tile sprite for the background (5)
+// Total: (60)
 //
 // Sources:
 // Tri-Tachyon - Nanophage (Background Music) : https://freemusicarchive.org/music/Tri-Tachyon/the-garden-of-kadesh-ep/nanophage

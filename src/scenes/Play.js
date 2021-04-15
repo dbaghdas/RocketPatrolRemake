@@ -105,6 +105,8 @@ class Play extends Phaser.Scene {
     }
 
     update() {
+
+        
         // Scroll the Starfield
         this.starfield.tilePositionX += -4;
 
