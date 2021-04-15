@@ -8,7 +8,8 @@
 // Add your own (copyright-free) background music to the Play scene (5)
 // Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
 // Create a new scrolling tile sprite for the background (5)
-// Total: (60)
+// Replace the UI borders with new artwork (10)
+// Total: (70)
 //
 // Sources:
 // Tri-Tachyon - Nanophage (Background Music) : https://freemusicarchive.org/music/Tri-Tachyon/the-garden-of-kadesh-ep/nanophage

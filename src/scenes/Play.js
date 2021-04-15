@@ -12,6 +12,8 @@ class Play extends Phaser.Scene {
         this.load.audio('sfx_rocket', 'assets/rocket_shot.wav');
         this.load.audio('backgroundMusic', 'assets/nanophage.mp3');
         this.load.image('smallspaceship', 'assets/spaceshipSmall.png');
+        this.load.image('uiborder', 'assets/uiborder.png');
+        this.load.image('greenborder', 'assets/greenBorder.png');
     }
 
     create() {
@@ -30,14 +32,14 @@ class Play extends Phaser.Scene {
         this.ship3 = new Ship(this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0,0);
         this.ship4 = new ShipSmall(this, game.config.width, borderUISize*7 + borderPadding*4, 'smallspaceship', 0, 10).setOrigin(0,0);
 
-        // Green UI Background
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0, 0);
+        // UI Background
+        this.greenborder = this.add.tileSprite(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 'greenborder').setOrigin(0,0);
         
-        // White UI Borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-	    this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFFFFFF).setOrigin(0 ,0);
-	    this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
-	    this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0 ,0);
+        // UI Borders
+        this.uiborder = this.add.tileSprite(0, 0, game.config.width, borderUISize, 'uiborder').setOrigin(0,0);
+        this.uiborder = this.add.tileSprite(0, game.config.height - borderUISize, game.config.width, borderUISize, 'uiborder').setOrigin(0,0);
+        this.uiborder = this.add.tileSprite(0, 0, borderUISize, game.config.height, 'uiborder').setOrigin(0,0);
+        this.uiborder = this.add.tileSprite(game.config.width - borderUISize, 0, borderUISize, game.config.height, 'uiborder').setOrigin(0,0);
         
         // For Player 1
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
