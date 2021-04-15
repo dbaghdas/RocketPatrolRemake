@@ -1,6 +1,10 @@
 //
-// python -m http.server each time you start VSCODE on terminal
-// url: localhost:8000
+// Danny Baghdasarians
+// Rocket Patrol Remake Modded
+// 4/15/21
+// Hours: 
+//
+//
 //
 
 let config = {
