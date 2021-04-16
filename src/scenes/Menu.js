@@ -1,6 +1,8 @@
 class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene");
+
+        this.switch = false;
     }    
 
     preload() {
@@ -21,6 +23,9 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
+
+        
+
         this.menubg = this.add.tileSprite(0, 0, 640, 480, 'menubg').setOrigin(0, 0);
         this.add.text(game.config.width/2, game.config.height/4 - borderUISize - borderUISize, 'ROCKET PATROL MODDED', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2.8 - borderUISize - borderUISize, '2 PLAYER', menuConfig).setOrigin(0.5);
@@ -35,6 +40,21 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
+
+        if(this.switch == false) {
+          this.menubg.tilePositionX += 0.1;
+          if(this.menubg.tilePositionX >= 5)
+          {
+            this.switch = true;
+          }
+        }
+        if(this.switch == true) {
+          this.menubg.tilePositionX -= 0.1;
+          if(this.menubg.tilePositionX <= -5)
+          {
+            this.switch = false;
+          }
+        }
       
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy mode
