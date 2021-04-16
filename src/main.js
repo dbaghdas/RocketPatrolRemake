@@ -2,7 +2,7 @@
 // Danny Baghdasarians
 // Rocket Patrol Remake Modded
 // 4/15/21
-// Hours: 
+// Hours: 5 Hrs 
 //
 // Implement a simultaneous two-player mode (30)
 // Add your own (copyright-free) background music to the Play scene (5)
