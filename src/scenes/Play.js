@@ -34,7 +34,7 @@ class Play extends Phaser.Scene {
         this.ship4 = new ShipSmall(this, game.config.width, borderUISize*7 + borderPadding*4, 'smallspaceship', 0, 10).setOrigin(0,0);
 
         // UI Background
-        this.greenborder = this.add.tileSprite(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 'greenborder').setOrigin(0,0);
+        this.greenborder = this.add.tileSprite(0, borderUISize + borderPadding - 12, game.config.width, borderUISize * 2, 'greenborder').setOrigin(0,0);
         
         // UI Borders
         this.uiborder = this.add.tileSprite(0, 0, game.config.width, borderUISize, 'uiborder').setOrigin(0,0);
@@ -51,7 +51,7 @@ class Play extends Phaser.Scene {
         // For Player 2
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keyP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
 
         // animation config
         this.anims.create({
@@ -66,33 +66,33 @@ class Play extends Phaser.Scene {
 
           // display score
         let scoreConfig1 = {
-            fontFamily: 'Courier',
+            fontFamily: 'IMPACT',
             fontSize: '28px',
             backgroundColor: '#FACADE',
             color: '#843605',
-            align: 'right',
+            align: 'left',
             padding: {
-            top: 5,
-            bottom: 5,
+            top: 3,
+            bottom: 3,
             },
             fixedWidth: 100
         }
         // Score for player 2
         let scoreConfig2 = {
-            fontFamily: 'Courier',
+            fontFamily: 'IMPACT',
             fontSize: '28px',
             backgroundColor: '#F3B141',
             color: '#843605',
             align: 'right',
             padding: {
-            top: 5,
-            bottom: 5,
+            top: 3,
+            bottom: 3,
             },
             fixedWidth: 100
         }
 
-        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig1);
-        this.scoreRight = this.add.text(borderUISize + borderPadding + 450, borderUISize + borderPadding*2, this.p2Score, scoreConfig2);
+        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2 - 12, this.p1Score, scoreConfig1);
+        this.scoreRight = this.add.text(borderUISize + borderPadding + 450, borderUISize + borderPadding*2 - 12, this.p2Score, scoreConfig2);
 
                 // GAME OVER flag
         this.gameOver = false;
